@@ -1,14 +1,17 @@
 {
   "Products": [
     {
+      "id": 1,
       "name": "iphone",
       "price": "$999"
     },
     {
+      "id": 2,
       "name": "Macbook Pro",
       "price": "$2999"
     },
     {
+      "id": 3,
       "name": "imac",
       "price": "$1999"
     }
