@@ -1,0 +1,16 @@
+{
+  "Products": [
+    {
+      "name": "iphone",
+      "price": "$999"
+    },
+    {
+      "name": "Macbook Pro",
+      "price": "$2999"
+    },
+    {
+      "name": "imac",
+      "price": "$1999"
+    }
+  ]
+}
