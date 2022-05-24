@@ -9,6 +9,8 @@ import createSagaMiddleware from "@redux-saga/core";
 import productsReducer from "./productSlice";
 import productSaga from "./productSaga";
 
+import { BrowserRouter } from "react-router-dom";
+
 const saga = createSagaMiddleware();
 const store = configureStore({
   reducer: {
@@ -21,9 +23,11 @@ saga.run(productSaga);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <BrowserRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
