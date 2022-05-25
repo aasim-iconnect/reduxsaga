@@ -14,9 +14,11 @@ const productSlice = createSlice({
     getProductsSuccess: (state, action) => {
       state.isLoading = false;
       state.products = action.payload;
+      state.error = action.payload;
     },
     getProductsFailure: (state, action) => {
       state.isLoading = false;
+      state.products = [];
       state.error = action.payload;
     },
   },

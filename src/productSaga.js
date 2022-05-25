@@ -1,10 +1,20 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 import { getProductsSuccess, getProductsFailure } from "./productSlice";
 
+async function api() {
+  const data = await fetch("https://api.thecatapi.com/v1/breeds");
+  const response = await data.json();
+  console.log(response);
+  return response;
+}
+
 function* workProductsFetch() {
-  const products = yield call(() => fetch("http://localhost:3001/Products"));
-  const formattedProducts = yield products.json();
-  yield put(getProductsSuccess(formattedProducts));
+  try {
+    const cats = yield call(api);
+    yield put(getProductsSuccess(cats));
+  } catch (error) {
+    yield put(getProductsFailure(error.message));
+  }
 }
 
 function* productSaga() {

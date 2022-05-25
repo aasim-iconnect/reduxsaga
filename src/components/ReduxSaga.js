@@ -10,28 +10,35 @@ const ReduxSaga = () => {
   useEffect(() => {
     dispatch(getProductsFetch());
   }, [dispatch]);
-  console.log("Hii", products);
-  return (
-    <>
-      <div className="App">
-        <h1> Redux Saga</h1>
-        <h2>
-          {products &&
-            products.map((product) => (
+  console.log(products.message);
+  if (products.message) {
+    return (
+      <>
+        <h1>{products.message}</h1>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <div className="App">
+          <h1> Redux Saga</h1>
+          <h1>{products.message}</h1>
+          <h2>
+            {products.map((product) => (
               <div key={product.id}>
                 <div>
-                  <h2>{product.name}</h2>
+                  <h5>{product.name}</h5>
                   <h5>{product.price}</h5>
                 </div>
               </div>
             ))}
-        </h2>
-        <div>
-          <button onClick={() => navigate("/")}>Go Home</button>
+          </h2>
+          <div>
+            <button onClick={() => navigate("/")}>Go Home</button>
+          </div>
         </div>
-      </div>
-    </>
-  );
+      </>
+    );
+  }
 };
-
 export default ReduxSaga;

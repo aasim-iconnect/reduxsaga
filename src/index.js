@@ -8,7 +8,6 @@ import { Provider } from "react-redux";
 import createSagaMiddleware from "@redux-saga/core";
 import productsReducer from "./productSlice";
 import productSaga from "./productSaga";
-
 import { BrowserRouter } from "react-router-dom";
 
 const saga = createSagaMiddleware();
